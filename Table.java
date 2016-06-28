@@ -7,7 +7,11 @@ public class Table
   {
     head = null;
   }
-  
+
+  /**
+   * Adds card to table linked list
+   * @param card
+   */
   public void add(Card card)
   {
     TableNode newNode = new TableNode(card);
@@ -15,7 +19,13 @@ public class Table
     
     head = newNode;
   }
-  
+
+  /**
+   * Removes set from table linked list
+   * @param Card to be removed
+   * @param Card to be removed
+   * @param Card to be removed
+   */
   public void removeSet(Card c1, Card c2, Card c3)
   {
     if(!contains(c1) || !contains(c2) || !contains(c3))
@@ -32,7 +42,12 @@ public class Table
     prev = findPrev(c3);
     remove(prev);
   }
-  
+
+  /**
+   * Returns whether or not a card is in the table linked list
+   * @param Card that will be compared with table
+   * @return
+   */
   private boolean contains(Card c)
   {
     TableNode curr = head;
@@ -47,7 +62,12 @@ public class Table
     
     return false;
   }
-  
+
+  /**
+   * Returns Card before parameter
+   * @param Card at current location
+   * @return
+   */
   private TableNode findPrev(Card c)
   {
     TableNode curr = head;
@@ -61,7 +81,11 @@ public class Table
     
     return prev;
   }
-  
+
+  /**
+   * Removes Card after prev
+   * @param previous Card from one to be removed
+   */
   private void remove(TableNode prev)
   {
     // check for a head remove
@@ -89,7 +113,12 @@ public class Table
     
     return count;
   }
-  
+
+  /**
+   * Returns card at index
+   * @param index
+   * @return card at index
+   */
   public Card getCard(int index)
   {
     if(index >= numCards())
