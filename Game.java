@@ -1,8 +1,24 @@
+/**
+ * @author    Benjamin Coleman
+ * @version   1.0
+ * @since     1.0
+ */
+
 public class Game
 {
+  /**
+   *  A table object on which the cards will be placed
+   */
   private Table t;
+
+  /**
+   *  A deck object from which the cards will be drawn
+   */
   private Deck d;
-  
+
+  /**
+   *  This will play a game based on a normal deck of cards
+   */
   public Game()
   {
     t = new Table();
@@ -13,6 +29,10 @@ public class Game
       t.add(d.getNext());
   }
 
+  /**
+   *
+   * @param filename  a filename to a custom deck
+     */
   public Game(String filename)
   {
     t = new Table();
@@ -22,7 +42,11 @@ public class Game
     while(d.hasNext() && t.numCards() < 12)
       t.add(d.getNext());
   }
-  
+
+  /**
+   *
+   * @return returns the number of sets in the game played
+     */
   public int numSets()
   {
     return t.numSets();
