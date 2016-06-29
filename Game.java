@@ -6,14 +6,11 @@
 
 public class Game
 {
-  /**
-   *  A table object on which the cards will be placed
-   */
+
+  // A table object on which the cards will be placed
   private Table t;
 
-  /**
-   *  A deck object from which the cards will be drawn
-   */
+  // A deck object from which the cards will be drawn
   private Deck d;
 
   /**
@@ -30,7 +27,7 @@ public class Game
   }
 
   /**
-   *
+   * Plays a game based on a custom deck
    * @param filename  a filename to a custom deck
      */
   public Game(String filename)
@@ -45,18 +42,26 @@ public class Game
 
   /**
    *
-   * @return returns the number of sets in the game played
+   * @return returns the number of sets on the table
      */
   public int numSets()
   {
     return t.numSets();
   }
-  
+
+  /**
+   *
+   * @return returns the number of cards on the table
+     */
   public int numCards()
   {
     return t.numCards();
   }
-  
+
+  /**
+   *
+   * @return returns true if the game is over and false if the game is not over
+     */
   public boolean isGameOver()
   {
     if(d.hasNext())
@@ -66,7 +71,10 @@ public class Game
     // the game continues until there are no sets on the table
     return t.numSets() == 0;
   }
-  
+
+  /**
+   *  plays one round of Set
+   */
   public void playRound()
   {
     // If the game is over, they shouldn't have called this...
