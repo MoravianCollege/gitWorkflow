@@ -63,7 +63,16 @@ public class Card
   {
     return shape;
   }
-  
+
+  /**
+   * Sums integer representations of the quantity, color, shading, and shape
+   * of three Card objects. This method returns true only if all 4 sums are
+   * divisible by 3 (which tells us the three cards are a set).
+   * @param c1 Card object to be tested.
+   * @param c2 Card object to be tested.
+   * @param c3 Card object to be tested.
+   * @return Boolean: true if three cards are a set, false if not.
+   */
   public static boolean isSet(Card c1, Card c2, Card c3)
   {
     int quantitySum = c1.getQuantity() + c2.getQuantity() + c3.getQuantity();
