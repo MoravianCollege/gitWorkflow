@@ -2,7 +2,7 @@ import junit.framework.TestCase;
 
 public class DeckTest extends TestCase {
   
-  public void testNewDeck() 
+  public void testNewDeck()
   {
     Deck d = new Deck();
     
@@ -43,14 +43,14 @@ public class DeckTest extends TestCase {
   
   public void testEmptyDeck()
   {
-    Deck d = new Deck("empty.dat");
+    Deck d = new Deck("GameTests/empty.dat");
     
     assertFalse(d.hasNext());
   }
   
   public void testDeckFromFile()
   {
-    Deck d = new Deck("deck.dat");
+    Deck d = new Deck("GameTests/deck.dat");
     
     assertTrue(d.hasNext());
     assertEquals(new Card(1, 1, 1, 1), d.getNext());

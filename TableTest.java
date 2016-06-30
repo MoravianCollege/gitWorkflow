@@ -21,7 +21,7 @@ public class TableTest extends TestCase
   
   public void testSmallTableNoSets()
   {
-    Table t = makeTable("3cards0sets.dat");
+    Table t = makeTable("GameTests/3cards0sets.dat");
     
     Card c1 = new Card(1, 1, 1, 1);
     Card c2 = new Card(1, 1, 1, 2);
@@ -38,7 +38,7 @@ public class TableTest extends TestCase
   
   public void testSmallTable1Set()
   {
-    Deck d = new Deck("small.dat");
+    Deck d = new Deck("GameTests/small.dat");
     Table t = new Table();
     
     while(d.hasNext())
@@ -57,7 +57,7 @@ public class TableTest extends TestCase
   
   public void testSetNotOnTable()
   {
-    Table t = makeTable("3cards0sets.dat");
+    Table t = makeTable("GameTests/3cards0sets.dat");
     
     Card c1 = new Card(2, 2, 2, 2);
     Card c2 = new Card(2, 2, 2, 3);
@@ -71,7 +71,7 @@ public class TableTest extends TestCase
   
   public void testNotSet()
   {
-    Table t = makeTable("3cards0sets.dat");
+    Table t = makeTable("GameTests/3cards0sets.dat");
 
     // These cards are on the table, but they do not form a set.
     Card c1 = new Card(1, 1, 1, 1);
@@ -86,7 +86,7 @@ public class TableTest extends TestCase
    
   public void testNotAllOnTable()
   {
-    Table t = makeTable("3cards0sets.dat");
+    Table t = makeTable("GameTests/3cards0sets.dat");
     Card c1 = new Card(1, 1, 1, 1);
     Card c2 = new Card(1, 1, 1, 2);
     Card c3 = new Card(1, 1, 1, 3);
@@ -99,7 +99,7 @@ public class TableTest extends TestCase
   
   public void testFourteenInTwelve()
   {
-    Table t = makeTable("fourteen.dat");
+    Table t = makeTable("GameTests/fourteen.dat");
     
     assertEquals(14, t.numSets());
     assertEquals(12, t.numCards());
@@ -129,7 +129,7 @@ public class TableTest extends TestCase
   
   public void testNoSetsinTwelve()
   {
-    Table t = makeTable("12cards0sets.dat");
+    Table t = makeTable("GameTests/12cards0sets.dat");
     
     assertEquals(12, t.numCards());
     assertEquals(0, t.numSets());
