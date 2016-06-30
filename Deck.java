@@ -5,11 +5,13 @@ import java.util.StringTokenizer;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//Creates a deck of cards for the game, Set. 
 public class Deck
 {
   private ArrayList<Card> theCards;
   private int nextCardIndex;
   
+//Creates a deck of 81 cards.
   public Deck()
   {
     theCards = new ArrayList<Card>(81);
@@ -33,6 +35,7 @@ public class Deck
     nextCardIndex = 0;
   }
   
+//Creates the deck by reading content from a file.
   public Deck(String filename)
   {
     theCards = new ArrayList<Card>(81);
@@ -73,12 +76,14 @@ public class Deck
       throw new RuntimeException("Error while reading file: " + e.toString());
     }
   }
-    
+  
+//Checks to see if there is another card in the deck.   
   public boolean hasNext()
   {
     return nextCardIndex < theCards.size();
   }
-    
+
+// Returns the next card in the deck.    
   public Card getNext()
   {
     if(nextCardIndex > 80)

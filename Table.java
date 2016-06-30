@@ -2,9 +2,6 @@ import java.util.LinkedList;
 
 public class Table
 {
-  /**
-   *
-   */
   private LinkedList<Card> cards;
 
 
@@ -13,12 +10,21 @@ public class Table
     cards = new LinkedList<>();
   }
 
-
+  /**
+   * Adds card to table linked list
+   * @param card
+   */
   public void add(Card card)
   {
     cards.add(card);
   }
-  
+
+  /**
+   * Removes set from table linked list
+   * @param c1 first Card to be removed
+   * @param c2 second Card to be removed
+   * @param c3 third Card to be removed
+   */
   public void removeSet(Card c1, Card c2, Card c3)
   {
     if(!contains(c1) || !contains(c2) || !contains(c3))
@@ -30,7 +36,12 @@ public class Table
     cards.remove(c2);
     cards.remove(c3);
   }
-  
+
+  /**
+   * Returns whether or not a card is in the table linked list
+   * @param c the card that will be compared with table
+   * @return 
+   */
   private boolean contains(Card c)
   {
     return cards.contains(c);
@@ -40,7 +51,12 @@ public class Table
   {
     return cards.size();
   }
-  
+
+  /**
+   * Returns card at index
+   * @param index
+   * @return card at index
+   */
   public Card getCard(int index)
   {
     return cards.get(index);

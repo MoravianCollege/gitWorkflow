@@ -1,8 +1,10 @@
+//This class plays one game of set
 public class Game
 {
   private Table t;
   private Deck d;
-  
+
+  //This constructor plays a game of set using a standard deck
   public Game()
   {
     t = new Table();
@@ -13,6 +15,7 @@ public class Game
       t.add(d.getNext());
   }
 
+  //This constructor plays a game of set using a specific deck
   public Game(String filename)
   {
     t = new Table();
