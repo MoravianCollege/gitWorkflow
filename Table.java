@@ -1,19 +1,22 @@
+import java.util.LinkedList;
 
 public class Table
 {
-  private TableNode head;
-  
+  /**
+   *
+   */
+  private LinkedList<Card> cards;
+
+
   public Table()
   {
-    head = null;
+    cards = new LinkedList<>();
   }
-  
+
+
   public void add(Card card)
   {
-    TableNode newNode = new TableNode(card);
-    newNode.setNext(head);
-    
-    head = newNode;
+    cards.add(card);
   }
   
   public void removeSet(Card c1, Card c2, Card c3)
@@ -23,114 +26,58 @@ public class Table
     if(!c1.isSet(c2, c3))
       return;
     
-    TableNode prev = findPrev(c1);
-    remove(prev);
-    
-    prev = findPrev(c2);
-    remove(prev);
-    
-    prev = findPrev(c3);
-    remove(prev);
+    cards.remove(c1);
+    cards.remove(c2);
+    cards.remove(c3);
   }
   
   private boolean contains(Card c)
   {
-    TableNode curr = head;
-    
-    while(curr != null)
-    {
-      if(curr.getCard().equals(c))
-        return true;
-      
-      curr = curr.getNext();
-    }
-    
-    return false;
-  }
-  
-  private TableNode findPrev(Card c)
-  {
-    TableNode curr = head;
-    TableNode prev = null;
-    
-    while(!(curr.getCard().equals(c)))
-    {
-      prev = curr;
-      curr = curr.getNext();
-    }
-    
-    return prev;
-  }
-  
-  private void remove(TableNode prev)
-  {
-    // check for a head remove
-    if(prev == null)
-    {
-      head = head.getNext();
-      return;
-    }
-    
-    TableNode toRemove = prev.getNext();
-    
-    prev.setNext(toRemove.getNext());
+    return cards.contains(c);
   }
   
   public int numCards()
   {
-    TableNode temp = head;
-    int count = 0;
-    
-    while(temp != null)
-    {
-      count++;
-      temp = temp.getNext();
-    }
-    
-    return count;
+    return cards.size();
   }
   
   public Card getCard(int index)
   {
-    if(index >= numCards())
-      return null;
-    
-    TableNode temp = head;
-    for(int i = 0; i < index; i++)
-      temp = temp.getNext();
-    
-    return temp.getCard();
+    return cards.get(index);
   }
   
   public int numSets()
   {
-    TableNode n1 = head;
     int count = 0;
-    
-    while(n1 != null && n1.getNext() != null)
+
+    int n1 = 0;
+
+    int lastIndex = cards.size() - 1;
+
+    while(n1 < lastIndex && n1 + 1 < lastIndex)
     {
-      TableNode n2 = n1.getNext();
+      int n2 = n1 + 1;
       
-      while(n2 != null && n2.getNext() != null)
+      while(n2 < lastIndex && n2 + 1 <= lastIndex)
       {
-        TableNode n3 = n2.getNext();
+        int n3 = n2 + 1;
         
-        while(n3 != null)
+        while(n3 <= lastIndex)
         {
-          Card c1 = n1.getCard();
-          Card c2 = n2.getCard();
-          Card c3 = n3.getCard();
+          Card c1 = cards.get(n1);
+          Card c2 = cards.get(n2);
+          Card c3 = cards.get(n3);
           
           if(c1.isSet(c2, c3))
             count++;
           
-          n3 = n3.getNext();
+          n3++;
         }
         
-        n2 = n2.getNext();
+        n2++;
       }
       
-      n1 = n1.getNext();
+      n1++;
     }
     
     return count;
