@@ -19,6 +19,7 @@ public class TableTest extends TestCase
     assertEquals(0, t.numSets());
   }
   
+  /*
   public void testSmallTableNoSets()
   {
     Table t = makeTable("3cards0sets.dat");
@@ -35,6 +36,7 @@ public class TableTest extends TestCase
     assertEquals(c2, t.getCard(1));
     assertEquals(c1, t.getCard(2));
   }
+  */
   
   public void testSmallTable1Set()
   {
