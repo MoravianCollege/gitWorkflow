@@ -1,11 +1,21 @@
-
+/**
+ * @author Dr. Coleman
+ */
 public class Card
 {
   private int quantity;
   private int color;
   private int shading;
   private int shape;
-  
+
+  /**
+   * This constructor assigns a card a specific attribute for quantity, color,
+   * shading, and shape.
+   * @param theQuantity
+   * @param theColor
+   * @param theShading
+   * @param theShape
+     */
   public Card(int theQuantity, int theColor, int theShading, int theShape)
   {
     quantity = fixValue(theQuantity);
@@ -13,7 +23,13 @@ public class Card
     shading = fixValue(theShading);
     shape = fixValue(theShape);
   }
-  
+
+  /**
+   * fixValue fixes a value for either quantity, color, shading, or shape that
+   * is less than or equal to three
+   * @param value
+   * @return
+     */
   private int fixValue(int value)
   {
     value = value % 3;
@@ -23,7 +39,11 @@ public class Card
     
     return value;
   }
-  
+
+  /**
+   * Gets the quantity of a given card between 1-3
+   * @return
+     */
   public int getQuantity()
   {
     return quantity;
